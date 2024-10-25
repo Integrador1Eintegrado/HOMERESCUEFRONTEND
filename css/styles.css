@@ -1,0 +1,521 @@
+html, body {
+    height: 100%;
+    margin: 0;
+}
+
+.carousel, .carousel-item {
+    height: 100vh;
+}
+
+.carousel-item img {
+    width: 100%;
+    height: auto;
+    max-height: 100%;
+    object-fit: cover;
+    transition: transform 10s ease; 
+}
+.carousel-item.active img {
+    transform: scale(1.05); 
+}
+
+/* Navbar styling */
+.navbar {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    z-index: 10;
+}
+
+.navbar .navbar-brand {
+    display: flex;
+    align-items: center;
+}
+
+/* Styling for the text over the images */
+
+.carousel-caption {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    color: white;
+    text-align: left;
+    max-width: 600px;
+    left: 10%;
+    z-index: 20;
+}
+
+.carousel-caption h1 {
+    font-size: 2rem; 
+    font-weight: 550;  
+    line-height: 1.2;  
+}
+
+.carousel-caption h1 b {
+    font-weight: bold;
+    font-size: 4rem;   
+}
+
+.carousel-caption p {
+    font-size: 1.2rem;
+    margin-bottom: 1.5rem;
+    color: white;
+}
+
+/* Custom indicator styles */
+.indicator-container {
+    position: absolute;
+    bottom: 50px; 
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 120px; 
+    z-index: 20;
+}
+
+.indicator-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0 15px;
+}
+
+.indicator {
+    height: 5px;
+    width: 250px;
+    background-color: rgba(255, 255, 255, 0.3); 
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.indicator.active {
+    background-color: white;
+}
+
+.indicator-label {
+    color: white;
+    margin-top: 8px;
+    font-size: 20px; 
+    white-space: nowrap;
+}
+
+.indicator-label-active {
+    color: white;
+    font-weight: bold;
+}
+
+/* Botón de idiomas y menú */
+.icon-size {
+    width: 20px;
+    height: 20px;
+    stroke: black; 
+}
+
+.flag-icon {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+}
+
+#div-boton {
+    display: flex;
+    justify-content: space-around;
+}
+
+#div-boton-img {
+    background-color: rgb(255, 255, 255);
+    border-radius: 60px;
+    margin-left: 40px;
+    margin-right: 15px;
+}
+
+.btn-custom {
+    background-color: transparent;
+    border: none;
+}
+
+
+/* Posicionar el botón */
+.fixed-btn {
+    position: absolute;
+    bottom: 230px; 
+    left: 10%;    
+    z-index: 1000;
+    background-color: #17a2b8;
+    color: black;
+    padding: 15px 30px;
+    font-size: 1.2rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border: none;
+    border-radius: 20px;
+    transition: background-color 0.3s ease;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.fixed-btn:hover {
+    background-color: #138496;
+}
+
+.home-rescue-title {
+    font-size: 1.5rem; 
+    color: white;
+    font-weight: 700;
+    text-transform: uppercase;
+    margin-left: 15px; 
+}
+
+/* Estiliza el título del modal */
+.modal-title {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: black;
+}
+
+/* Botones principales del modal */
+#userButton, #providerButton {
+    width: 80%;
+    padding: 8px 0; 
+    font-size: 1.3rem; 
+    font-weight: bold;
+    border-radius: 50px; 
+    border: none;
+    margin: 15px 0; 
+    cursor: pointer;
+    transition: transform 0.3s ease, background-color 0.3s ease, margin-bottom 0.3s ease;
+}
+
+/* Estilo específico para el botón de usuario */
+#userButton {
+    background-color: #FFD700; 
+    color: black;
+}
+
+/* Estilo específico para el botón de proveedor */
+#providerButton {
+    background-color: #1E90FF; 
+    color: black;
+}
+
+/* Efecto hover para ambos botones */
+#userButton:hover, #providerButton:hover {
+    transform: scale(1.05); 
+    background-color: #FFA500; 
+    margin-bottom: 30px; 
+}
+
+/* Centra el contenido y ajusta el modal */
+.modal-body {
+    text-align: center;
+    padding: 75px 40px;
+    border-radius: 200px; 
+}
+
+.step p {
+    font-size: 1.4rem;
+    margin-bottom: 30px;
+    color: black;
+}
+
+/* Ajusta los márgenes del modal */
+.modal-dialog {
+    max-width: 500px;
+    border-radius: 200px; 
+}
+
+/* Contenedor del formulario */
+.form-section {
+    text-align: center;
+    padding: 40px;
+}
+
+.logo-container {
+    margin-bottom: 20px;
+}
+
+.logo {
+    max-width: 50px;
+    display: block;
+    margin: 0 auto;
+}
+
+h2 {
+    font-size: 20px;
+    font-weight: normal;
+    margin-top: 10px;
+}
+
+/* Campos de entrada */
+.form-input {
+    width: 100%;
+    padding: 10px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 2px solid #ccc; 
+    border-radius: 10px; 
+    box-sizing: border-box;
+    font-size: 1rem;
+}
+
+/* Botón de crear cuenta */
+.create-account-button {
+    width: 100%;
+    padding: 10px;
+    background-color: #0096D6;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    margin-top: 20px;
+}
+
+/* Botón de volver */
+#backButtonUser {
+    display: block;
+    width: 100%;
+    margin-top: 10px;
+    padding: 10px;
+    background-color: #f1f1f1;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+}
+
+/* Ajustes de hover */
+.create-account-button:hover,
+#backButtonUser:hover {
+    background-color: #007bb5;
+    color: #fff;
+}
+
+/* Botón de validar cuenta */
+.validation-button {
+    width: 100%;
+    padding: 10px;
+    background-color: #0096D6;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    margin-top: 20px;
+}
+
+/* Botón de volver */
+#backButtonProvider {
+    display: block;
+    width: 100%;
+    margin-top: 10px;
+    padding: 10px;
+    background-color: #f1f1f1;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+}
+
+/* Ajustes de hover */
+.validation-button:hover,
+#backButtonProvider:hover {
+    background-color: #007bb5;
+    color: #fff;
+}
+
+/* Estilo de la flecha */
+.arrow {
+    font-size: 35px;
+    color: #000; 
+    margin-left: -40px; 
+    position: relative;
+    right: 10px; 
+    font-weight: bold; 
+}
+
+/* Estilos para el botón de Iniciar Sesión */
+.submit-button {
+    width: 30%; 
+    padding: 10px;
+    background-color: #FFD700;
+    color: black;
+    font-size: 1.7rem; 
+    font-weight: bold; 
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    margin-top: 20px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto; 
+}
+
+/* Hover del botón de Iniciar Sesión */
+.submit-button:hover {
+    background-color: #FFA500; 
+}
+
+/* Estilos para los campos de entrada del modal */
+.form-input {
+    width: 100%;
+    padding: 10px;
+    margin: 8px 0;
+    display: block;
+    border: 2px solid #ccc;
+    border-radius: 10px;
+    box-sizing: border-box;
+    font-size: 1rem;
+    text-align: center; 
+}
+.modal-title {
+    font-size: 2.5rem; 
+    font-weight: bold; 
+    margin: 0 auto; 
+    text-align: center; 
+    display: block; 
+    
+}
+
+.modal-content {
+    padding-bottom: 20px; 
+    min-height: 300px; 
+}
+
+/* Estilos para el texto de "Me olvidé mi contraseña" */
+.forgot-password {
+    margin-top: 15px;
+    font-size: 1rem;
+    color: #007bff;
+    cursor: pointer;
+    text-align: center;
+}
+
+.forgot-password:hover {
+    text-decoration: underline;
+}
+
+/* Botón de enviar código de verificación */
+.send-code-button {
+    width: 100%; /* Botón a lo largo del contenedor */
+    padding: 10px;
+    background-color: #6c757d;
+    color: white;
+    font-size: 1rem;
+    font-weight: bold;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.send-code-button:hover {
+    background-color: #5a6268;
+}
+
+/* Botón de Validar */
+.validate-button {
+    width: 100%; /* Botón a lo largo del contenedor */
+    padding: 10px;
+    background-color: #28a745;
+    color: white;
+    font-size: 1rem;
+    font-weight: bold;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+}
+
+.validate-button:hover {
+    background-color: #218838;
+}
+
+/* Sección del código de verificación (oculta inicialmente) */
+#verificationCodeSection {
+    display: none;
+}/* Aplica estilo general a cada opción */
+.overlap, .overlap-group, .overlap-group-2, .overlap-2 {
+    display: flex;
+    justify-content: space-between; /* Alinea el texto a la izquierda y la imagen a la derecha */
+    align-items: center; /* Alinea verticalmente el texto y la imagen */
+    border: 1px solid #000; /* Añade el borde al rectángulo */
+    padding: 10px; /* Ajusta el relleno para dar espacio entre el texto y el borde */
+    border-radius: 8px; /* Redondea las esquinas del rectángulo */
+    margin-bottom: 10px; /* Añade separación entre cada elemento */
+    max-width: 600px; /* Ancho máximo reducido */
+}
+
+/* Estilo para el texto dentro del rectángulo */
+.div, .text-wrapper-2 {
+    text-align: left; /* Alinea el texto a la izquierda */
+    flex-grow: 1; /* Permite que el texto ocupe todo el espacio disponible a la izquierda */
+    margin-right: 10px; /* Añade un espacio entre el texto y la imagen */
+}
+
+/* Ajusta el tamaño de las imágenes y las alinea a la derecha */
+.overlap img, .overlap-group img, .overlap-group-2 img, .overlap-2 img {
+    width: 30px; /* Ajusta el tamaño de la imagen */
+    height: auto; /* Mantén la proporción de la imagen */
+}
+
+/* Estilos para el botón de "Solicitar validación" */
+#btnSubmit {
+    background-color: #007BFF; /* Color azul */
+    color: white; /* Texto blanco */
+    border: none;
+    padding: 10px 20px;
+    border-radius: 50px; /* Bordes muy redondeados */
+    cursor: pointer;
+    font-size: 16px;
+    width: 100%; /* Ocupar todo el ancho disponible */
+    max-width: 200px; /* Ancho máximo */
+    display: block;
+    margin: 10px auto; /* Centrando el botón */
+}
+
+/* Estilos para el botón de "Volver" */
+#btnBack {
+    background-color: #D3D3D3; /* Color gris */
+    color: black; /* Texto negro */
+    border: none;
+    padding: 10px 20px;
+    border-radius: 50px; /* Bordes muy redondeados */
+    cursor: pointer;
+    font-size: 16px;
+    width: 100%; /* Ocupar todo el ancho disponible */
+    max-width: 100px; /* Ancho máximo */
+    display: block;
+    margin: 10px auto; /* Centrando el botón */
+}
+
+/* Efecto hover para mejorar la experiencia del usuario */
+#btnSubmit:hover {
+    background-color: #0056b3; /* Color azul más oscuro en hover */
+}
+
+#btnBack:hover {
+    background-color: #A9A9A9; /* Color gris más oscuro en hover */
+}
+/* Contenedor scrollable */
+.scrollable-container {
+    max-height: 400px; /* Ajusta la altura máxima según lo que prefieras */
+    overflow-y: auto;  /* Activa el scroll vertical cuando el contenido excede la altura máxima */
+    padding-right: 10px; /* Agrega un pequeño espacio en el lado derecho para el scroll */
+}
+
+/* Opcional: Estilo para que el contenedor se vea mejor */
+.scrollable-container::-webkit-scrollbar {
+    width: 6px; /* Tamaño de la barra de scroll */
+}
+
+.scrollable-container::-webkit-scrollbar-thumb {
+    background-color: #888; /* Color de la barra de scroll */
+    border-radius: 10px;
+}
+
+.scrollable-container::-webkit-scrollbar-thumb:hover {
+    background-color: #555; /* Color cuando se pasa el mouse sobre la barra */
+}
+
+
+
