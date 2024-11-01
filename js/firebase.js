@@ -5,12 +5,14 @@ import { getFirestore, doc, getDoc } from "https://www.gstatic.com/firebasejs/10
 import { getStorage } from "https://www.gstatic.com/firebasejs/10.13.1/firebase-storage.js"; // Importa Storage
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyDiO8RCFjoLpiJ9XtcbqGRV1fm3-NkCO9Q",
-  authDomain: "home-rescue-a322e.firebaseapp.com",
-  projectId: "home-rescue-a322e",
-  storageBucket: "home-rescue-a322e.appspot.com",
-  messagingSenderId: "672979176430",
-  appId: "1:672979176430:web:61f2f8a69ac3447db09cff"
+
+
+
+?
+
+
+
+  
 };
 
 // Initialize Firebase
