@@ -1,0 +1,70 @@
+body {
+            background-color: #f3f1f1;
+            color: #000000;
+        }
+
+        .sidebar {
+            background-color: #f8f9fa;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .sidebar a {
+            color: #000;
+        }
+
+        .sidebar a:hover {
+            background-color: #4797d8;
+            border-radius: 5px;
+            color: #fff;
+        }
+
+        .logo {
+            width: 30px;
+            height: auto;
+            border-radius: 5px;
+        }
+
+        .profile-img {
+            width: 95px;
+            height: 95px;
+            border-radius: 80%;
+            margin: 10px auto;
+            display: block;
+        }
+
+        .btn-inicio {
+            border-radius: 15px;
+            width: 100%;
+        }
+
+        .separator {
+            border-top: 1px solid #ddd;
+            margin: 10px 0;
+        }
+
+        .footer-links a {
+            color: #000;
+        }
+
+        .footer-links a:hover {
+            color: #4797d8;
+        }
+
+        .btn-cuadrado {
+            background-color: #d4edda;
+            color: #10be39;
+            border: 1px solid #c3e6cb;
+            padding: 10px 0;
+            font-size: 0.85rem;
+        }
+
+        .btn-rectangulo {
+            background-color: #f8f9fa;
+            color: #000;
+            border: 1px solid #ddd;
+            padding: 8px 0;
+            font-size: 0.85rem;
+        }
