@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Servicios</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
+
+  <style>
+    .service-container {
+      cursor: pointer;
+      border: 1px solid #ccc;
+      padding: 10px;
+      border-radius: 5px;
+      text-align: center;
+      background-color: #f8f9fa;
+    }
+    .service-container:hover {
+      background-color: #e2e6ea;
+    }
+    .service-deactivated {
+      background-color: #d3d3d3;
+      color: #7a7a7a;
+      pointer-events: none;
+    }
+    header {
+      background-color: #a0d3e8; /* Celeste suave */
+      color: black;
+    }
+    .navbar a, .navbar button {
+      color: black;
+    }
+    .navbar a:hover, .navbar button:hover {
+      color: #ffc107;
+    }
+    body {
+      background-color: #eaf5fc; /* Cuerpo celeste suave */
+    }
+    html, body {
+    height: 100%;
+    margin: 0;
+}/* Navbar styling */
+.navbar {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    z-index: 10;
+}
+
+.navbar .navbar-brand {
+    display: flex;
+    align-items: center;
+}   
+/* Botón de idiomas y menú */
+.icon-size {
+    width: 20px;
+    height: 20px;
+    stroke: black; 
+}
+
+.flag-icon {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+}
+
+#div-boton {
+    display: flex;
+    justify-content: space-around;
+}
+
+#div-boton-img {
+    background-color: rgb(255, 255, 255);
+    border-radius: 60px;
+    margin-left: 40px;
+    margin-right: 15px;
+}
+
+.btn-custom {
+    background-color: transparent;
+    border: none;
+}
+
+
+/* Posicionar el botón */
+.fixed-btn {
+    position: absolute;
+    bottom: 230px; 
+    left: 10%;    
+    z-index: 1000;
+    background-color: #17a2b8;
+    color: black;
+    padding: 15px 30px;
+    font-size: 1.2rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border: none;
+    border-radius: 20px;
+    transition: background-color 0.3s ease;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.fixed-btn:hover {
+    background-color: #138496;
+}
+
+.home-rescue-title {
+    font-size: 1.5rem; 
+    color: white;
+    font-weight: 700;
+    text-transform: uppercase;
+    margin-left: 15px; 
+}
+
+  </style>
+</head>
+<body>
+  <header>
+    <nav class="navbar navbar-expand-lg">
+        <div class="container-fluid d-flex align-items-center">
+            <a class="navbar-brand d-flex align-items-center" href="#">
+                <img src="img/favicon.png" height="36" alt="logo">
+                <h1 class="home-rescue-title ms-3" style="color: black;">HOMERESCUE</h1> 
+            </a>
+            <div id="div-boton" class="ms-auto">
+                <div id="div-boton-img">
+                    <button class="btn btn-custom" type="submit">
+                        <img src="https://indstatic.io/indstatic-main/flags/PE.svg" class="flag-icon"> PE
+                    </button>
+                </div>
+                <div id="div-boton-img">
+                    <button class="btn btn-custom" type="button" id="loginButton">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="icon-size">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 9V6.75A3.75 3.75 0 0012 3a3.75 3.75 0 00-3.75 3.75V9m-3 0h13.5M6 9v10.5a2.25 2.25 0 002.25 2.25h7.5A2.25 2.25 0 0018 19.5V9M9 13.5h6" />
+                        </svg>
+                        Iniciar Sesión
+                    </button>
+                </div>                
+                <div id="div-boton-img">
+                    <button class="btn btn-custom" type="submit">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="icon-size">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+                        </svg>
+                        Menu
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+  </header>
+
+  <main class="container mt-4">
+  <h1>Servicios</h1>
+  <button id="toggle-service-status" class="btn btn-warning mb-3" data-bs-toggle="modal" data-bs-target="#statusModal">Cambiar estado de servicio</button>
+
+  <div class="container">
+    <div class="row" id="service-list">
+      <div class="col-md-4 mb-3">
+        <div class="service-container" onclick="openCrudModal()" id="service-1">
+          <h4>Remodelación y construcción</h4>
+        </div>
+      </div>
+    </div>
+  </div>
+
+ <!-- Modal para cambiar el estado del servicio -->
+<div class="modal fade" id="statusModal" tabindex="-1" aria-labelledby="statusModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+      <div class="modal-content">
+          <div class="modal-header">
+              <h5 class="modal-title" id="statusModalLabel">Cambiar estado de servicio</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+              <div class="mb-3">
+                  <label for="serviceIdInput" class="form-label">Código del servicio:</label>
+                  <input type="text" id="serviceIdInput" class="form-control" placeholder="Ingrese el código del servicio" required>
+              </div>
+              <div class="mb-3">
+                  <label for="newStatusInput" class="form-label">Nuevo estado:</label>
+                  <input type="text" id="newStatusInput" class="form-control" placeholder="Ingrese el nuevo estado" required>
+              </div>
+              <button type="button" class="btn btn-success mt-3" onclick="updateServiceStatus()">Guardar Cambios</button>
+          </div>
+      </div>
+  </div>
+</div>
+
+
+  <!-- Modal para el CRUD de proveedores -->
+  <div class="modal fade" id="crudModal" tabindex="-1" aria-labelledby="modalTitle" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="modalTitle">CRUD de Proveedores</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <button class="btn btn-success mb-2" id="addProviderButton" data-bs-toggle="modal" data-bs-target="#addProviderModal">Agregar Proveedor</button>
+          <table class="table">
+            <thead>
+              <tr>
+                <th>ID Proveedor</th>
+                <th>Acciones</th>
+              </tr>
+            </thead>
+            <tbody id="providerTableBody">
+              <!-- Aquí se llenarán los proveedores -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal para agregar un proveedor -->
+<div class="modal fade" id="addProviderModal" tabindex="-1" aria-labelledby="addProviderModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="addProviderModalLabel">Agregar Proveedor</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form id="providerForm" onsubmit="addProviderToService(); return false;">
+          <div class="mb-3">
+            <label for="providerIdInput" class="form-label">ID del proveedor</label>
+            <input type="text" class="form-control" id="providerIdInput" required>
+          </div>
+          <div class="mb-3">
+            <label for="serviceIdInput" class="form-label">ID del servicio</label>
+            <input type="text" class="form-control" id="serviceIdInput" required>
+          </div>
+          <button type="submit" class="btn btn-success">Agregar</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+  
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+  async function loadServices() {
+    try {
+        const response = await fetch('https://awake-bursting-parakeet.ngrok-free.app/servicios');
+
+        if (!response.ok) {
+            throw new Error(`HTTP error! Status: ${response.status}`);
+        }
+
+        const services = await response.json();
+        const serviceList = document.getElementById('service-list');
+        serviceList.innerHTML = '';
+
+        services.forEach(service => {
+            const serviceDiv = document.createElement('div');
+            serviceDiv.className = 'col-md-4 mb-3';
+            serviceDiv.innerHTML = `
+                <div class="service-container" onclick="openCrudModal('${service.id}')">
+                    <h4>${service.descripcion}</h4>
+                    <p>Estado: ${service.estado}</p>
+                </div>
+            `;
+            serviceList.appendChild(serviceDiv);
+        });
+    } catch (error) {
+        console.error('Error al cargar los servicios:', error);
+    }
+  }
+
+  async function loadProviders(serviceId) {
+    try {
+        const response = await fetch(`http://localhost:8080/servicios/${serviceId}/proveedores`, {
+            method: 'GET',
+        });
+
+        if (!response.ok) {
+            throw new Error(`HTTP error! Status: ${response.status}`);
+        }
+
+        const providers = await response.json();
+        const providerList = document.getElementById('providerTableBody');
+        providerList.innerHTML = ''; // Limpiar la lista existente
+
+        providers.forEach(providerId => {
+            const row = document.createElement('tr');
+            row.innerHTML = `<td>${providerId}</td>
+                             <td>
+                                <button class="btn btn-danger" onclick="deleteProvider('${providerId}', '${serviceId}')">Eliminar</button>
+                             </td>`;
+            providerList.appendChild(row);
+        });
+    } catch (error) {
+        console.error('Error al cargar proveedores:', error);
+    }
+  }
+
+  async function addProviderToService() {
+    const providerId = document.getElementById('providerIdInput').value; // ID del proveedor
+    const serviceId = document.getElementById('serviceIdInput').value; // ID del servicio
+
+    if (!providerId || !serviceId) {
+        alert('Por favor, ingrese el ID del proveedor y el ID del servicio.');
+        return;
+    }
+
+    try {
+        console.log(`Agregando proveedor ${providerId} al servicio ${serviceId}`); // Debugging line
+        
+        const body = {
+            id: serviceId,
+            proveedor: {
+                id: providerId,
+            },
+            descripcion: null,
+            estado: "disponible"
+        };
+
+        const response = await fetch(`http://localhost:8080/servicios?idProveedor=${encodeURIComponent(providerId)}`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(body)
+        });
+
+        if (!response.ok) {
+            const errorText = await response.text();
+            throw new Error(`Error al agregar el proveedor al servicio: ${response.status} - ${errorText}`);
+        }
+
+        const data = await response.json();
+        console.log('Proveedor agregado:', data);
+
+        // Cerrar el modal y recargar los proveedores
+        const addProviderModal = bootstrap.Modal.getInstance(document.getElementById('addProviderModal'));
+        addProviderModal.hide();
+
+        // Cargar nuevamente los proveedores para el servicio
+        loadProviders(serviceId);
+    } catch (error) {
+        console.error('Error al agregar el proveedor al servicio:', error);
+        alert('Ocurrió un error al agregar el proveedor. Por favor, intente nuevamente.');
+    }
+}
+
+
+  async function deleteProvider(providerId, serviceId) {
+    try {
+        const response = await fetch(`http://localhost:8080/servicios?idProveedor=${encodeURIComponent(providerId)}&servicioId=${encodeURIComponent(serviceId)}`, {
+            method: 'DELETE',
+        });
+
+        if (!response.ok) {
+            throw new Error(`Error al eliminar el proveedor: ${response.status}`);
+        }
+
+        // Recargar la lista de proveedores después de eliminar
+        loadProviders(serviceId);
+    } catch (error) {
+        console.error('Error al eliminar el proveedor:', error);
+    }
+  }
+
+  function openCrudModal(serviceId) {
+    loadProviders(serviceId); // Cargar los proveedores para el servicio seleccionado
+    document.getElementById('serviceIdInput').value = serviceId; // Establecer el ID del servicio en el modal
+    const crudModal = new bootstrap.Modal(document.getElementById('crudModal'));
+    crudModal.show();
+  }
+
+  async function updateServiceStatus() {
+    const serviceId = document.getElementById('serviceIdInput').value;
+    const newStatus = document.getElementById('newStatusInput').value;
+
+    if (!serviceId || !newStatus) {
+        alert('Por favor, ingrese el código del servicio y el nuevo estado.');
+        return;
+    }
+
+    try {
+        const response = await fetch(`http://localhost:8080/servicios/${serviceId}/estado?estado=${encodeURIComponent(newStatus)}`, {
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+        });
+
+        if (!response.ok) {
+            throw new Error(`Error al actualizar el estado: ${response.status}`);
+        }
+
+        // Cerrar el modal y recargar los servicios
+        const statusModal = bootstrap.Modal.getInstance(document.getElementById('statusModal'));
+        statusModal.hide();
+        loadServices(); // Recargar los servicios para mostrar los cambios
+    } catch (error) {
+        console.error('Error al cambiar el estado del servicio:', error);
+    }
+  }
+
+  document.addEventListener('DOMContentLoaded', loadServices);
+  
+</script>
+</body>
+</html>
